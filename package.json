@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "babel": "*",
+    "co": "*",
+    "isomorphic-fetch": "*"
+  },
+  "devDependencies": {
+    "http-server": "*",
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "mocha --ui qunit --compilers js:babel/register",
+    "http-server": "http-server data/"
+  },
+  "author": "Axel Rauschmayer"
+}

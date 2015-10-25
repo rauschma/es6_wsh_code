@@ -1,0 +1,26 @@
+/* global test */
+
+import assert from 'assert';
+
+import {readFile} from 'fs';
+import * as path from 'path';
+
+import fetch from 'isomorphic-fetch';
+import co from 'co';
+
+test('Download and parse JSON file', (done) => {
+    co(function* () {
+        try {
+            let request = yield fetch('http://localhost:8080/bond.json');
+            let jsonStr = yield request.text();
+            let json = JSON.parse(jsonStr);
+            assert.deepEqual(json, {
+                first: 'Jane',
+                last: 'Bond',
+            });
+            done();
+        } catch (error) {
+            console.log('Error downloading JSON file: ' + error);
+        }
+    });    
+});
