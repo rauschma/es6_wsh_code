@@ -1,7 +1,6 @@
-/* global suite */
-/* global test */
+/* global suite,test */
 
-// EXERCISE: create the module impl/class.js so that these tests pass
+// EXERCISE: Make sure that these tests pass
 
 import assert from 'assert';
 
