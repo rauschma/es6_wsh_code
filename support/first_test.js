@@ -3,7 +3,8 @@
 
 /* EXERCISE:
    - Copy this file to impl/first_test_impl.js
-   - Change the code so that the test passes
+   - Change the code so that the test passes:
+     npm t impl/first_test_impl.js
 */
 
 import assert from 'assert';
