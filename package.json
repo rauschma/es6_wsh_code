@@ -1,16 +1,54 @@
 {
   "dependencies": {
-    "babel": "*",
-    "co": "*",
-    "isomorphic-fetch": "*"
+    "babel-cli": "^6.4.5",
+    "babel-preset-es2015-node5": "^1.1.2",
+    "co": "^4.6.0",
+    "isomorphic-fetch": "^2.2.1"
   },
+  "//": "Things only needed by tests (mocha needs babel-register)",
   "devDependencies": {
-    "http-server": "*",
-    "mocha": "*"
+    "babel-register": "^6.4.3",
+    "eslint": "^1.10.3",
+    "http-server": "^0.8.5",
+    "mocha": "^2.3.4"
+  },
+  "bin": {
+    "point": "./src/point.js"
   },
   "scripts": {
-    "test": "mocha --ui qunit --compilers js:babel/register",
-    "http-server": "http-server data/"
+    "pwd": "pwd",
+    "point": "babel-node ./src/point.js",
+    "b": "babel-node",
+    "test": "mocha --ui qunit --compilers js:babel-register",
+    "http-server": "http-server data/",
+    "lint": "eslint"
   },
-  "author": "Axel Rauschmayer"
+  "babel": {
+    "presets": [
+      "es2015-node5"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "eslint:recommended",
+    "env": {
+      "es6": true
+    },
+    "ecmaFeatures": {
+      "modules": true
+    },
+    "rules": {
+      "comma-dangle": [1, "always-multiline"],
+      "no-console": 0,
+      "prefer-const": 1,
+      "no-var": 1,
+      "no-const-assign": 2,
+      "semi": [1, "always"]
+    },
+    "globals": {
+      "console": true
+    }
+  },
+  "author": "Axel Rauschmayer",
+  "license": "MIT"
 }
