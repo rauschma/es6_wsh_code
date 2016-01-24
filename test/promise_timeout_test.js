@@ -10,7 +10,7 @@ import { timeout } from '../impl/promise_timeout';
 
 suite('promise_timeout_test');
 
-test('Waiting longer than timeout must cause error', (done) => {
+test('Waiting longer than timeout must cause error', done => {
     timeout(500, delay(1000))
     .then(() => {
         // No timeout occurred: error!
@@ -18,6 +18,26 @@ test('Waiting longer than timeout must cause error', (done) => {
     })
     .catch(() => {
         // Everything is OK
+        done();
+    });
+});
+test('Must pass on Promise result', done => {
+    timeout(0, Promise.resolve(123))
+    .then(result => {
+        assert.strictEqual(result, 123);
+        done();
+    })
+    .catch(() => {
+        throw new Error('Unexpected rejection');
+    });
+});
+test('Must pass on Promise rejection', done => {
+    timeout(0, Promise.reject(123))
+    .then(result => {
+        throw new Error('Unexpected resolution');
+    })
+    .catch(reason => {
+        assert.strictEqual(reason, 123);
         done();
     });
 });
