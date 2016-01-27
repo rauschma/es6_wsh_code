@@ -16,8 +16,6 @@
     "point": "./src/point.js"
   },
   "scripts": {
-    "pwd": "pwd",
-    "point": "babel-node ./src/point.js",
     "b": "babel-node",
     "test": "mocha --ui qunit --compilers js:babel-register",
     "http-server": "http-server data/",
