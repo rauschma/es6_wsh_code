@@ -3,6 +3,7 @@
     "babel-cli": "^6.6.5",
     "babel-preset-es2015-node5": "^1.2.0",
     "co": "^4.6.0",
+    "denodeify": "^1.2.1",
     "isomorphic-fetch": "^2.2.1"
   },
   "//": "Things only needed by tests (mocha needs babel-register)",
