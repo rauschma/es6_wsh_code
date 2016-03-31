@@ -4,7 +4,6 @@ Main directories:
 
 * `test/`: unit tests
 * `impl/`: the solutions to the tests
-    * Rename and create empty `impl/` for your own solutions
 * `support/`: helper files and templates
 
 Other files and directories:
@@ -15,8 +14,19 @@ Other files and directories:
 * `package.json`: the npm configuration file for this project
 * `README.md`: this file
 
+Installation:
+
+```text
+cd es6_wsh_code/
+
+npm install
+
+mv impl impl_orig
+mkdir impl
+```
+
 Run unit tests (based on mocha) via:
 
 ```
-npm test test/some_file.js
+npm test test/foo_test.js
 ```
