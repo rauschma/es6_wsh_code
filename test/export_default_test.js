@@ -9,5 +9,5 @@ import func from '../impl/export_default';
 suite('export_default_test');
 
 test('func()', () => {
-    assert.equal(func(), 'hello');
+    assert.strictEqual(func(), 'hello');
 });
