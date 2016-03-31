@@ -16,6 +16,7 @@ test('Combines two maps correctly', () => {
     .set(3, 'three')
     .set(4, 'four');
     const combined = combineMaps(map1, map2);
+    assert.ok(combined instanceof Map);
     assert.deepEqual([...combined], [
         [1, 'one'],
         [2, 'two'],
