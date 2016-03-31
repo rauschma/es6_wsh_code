@@ -2,7 +2,7 @@
 
 /* EXERCISE:
    - Copy this file to impl/let_test_impl.js
-   - Insert a single(!) line so that all tests pass
+   - Insert a single(!) line so that all assertions pass
 */
 
 import assert from 'assert';
