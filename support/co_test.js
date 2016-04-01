@@ -8,10 +8,6 @@
 */
 
 import assert from 'assert';
-
-import {readFile} from 'fs';
-import * as path from 'path';
-
 import fetch from 'isomorphic-fetch';
 
 test('Download and parse JSON file', () =>
