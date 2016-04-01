@@ -1,32 +1,32 @@
-import {resolve} from 'path';
+import {resolve,basename} from 'path';
 import {readdir,stat} from 'fs';
 import denodeify from 'denodeify';
 
 const readdirAsync = denodeify(readdir);
 const statAsync = denodeify(stat);
 
-export function listFiles(dir) {
-    return readdirAsync(dir)
-    .then(filenames => {
-        filenames.sort();
-        return Promise.all(
-            filenames.map(filename => {
-                const filepath = resolve(dir, filename);
-                return statAsync(filepath)
-                .then(stats => {
-                    if (stats.isDirectory()) {
-                        return listFiles(filepath);
-                    } else {
-                        return [filename];
-                    }
+export function listFiles(filepath) {
+    return statAsync(filepath)
+    .then(stats => {
+        if (stats.isDirectory()) {
+            return readdirAsync(filepath)
+            .then(childnames => {
+                childnames.sort();
+                return Promise.all(
+                    childnames.map(childname =>
+                        listFiles(resolve(filepath, childname))
+                    )
+                )
+                .then(subtrees => {
+                    return flatten(subtrees);
                 });
-            }))
-        .then(subtrees => {
-            return flatten(subtrees);
-        });
-    });
+            });
+        } else {
+            return [ basename(filepath) ];
+        }
+    });    
 }
 
 function flatten(arr) {
-    return [].concat.apply([], arr);
+    return [].concat(...arr);
 }
