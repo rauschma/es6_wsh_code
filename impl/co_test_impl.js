@@ -8,7 +8,7 @@ import * as path from 'path';
 import fetch from 'isomorphic-fetch';
 import co from 'co';
 
-test('Download and parse JSON file', (done) => {
+test('Download and parse JSON file', () =>
     co(function* () {
         try {
             let request = yield fetch('http://localhost:8080/bond.json');
@@ -18,9 +18,8 @@ test('Download and parse JSON file', (done) => {
                 first: 'Jane',
                 last: 'Bond',
             });
-            done();
         } catch (error) {
             console.log('Error downloading JSON file: ' + error);
         }
-    });    
-});
+    })
+);

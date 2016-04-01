@@ -14,7 +14,7 @@ import * as path from 'path';
 
 import fetch from 'isomorphic-fetch';
 
-test('Download and parse JSON file', (done) => {
+test('Download and parse JSON file', () =>
     fetch('http://localhost:8080/bond.json')
     .then(request => request.text())
     .then(jsonStr => {
@@ -23,9 +23,8 @@ test('Download and parse JSON file', (done) => {
             first: 'Jane',
             last: 'Bond',
         });
-        done();
     })
     .catch(error => {
         console.log('Error downloading JSON file: ' + error);
-    });
-});
+    })
+);
