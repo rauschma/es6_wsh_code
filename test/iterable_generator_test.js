@@ -1,5 +1,4 @@
-/* global suite */
-/* global test */
+/* global suite,test */
 
 // EXERCISE: create the module impl/iterable_generator.js so that these tests pass
 

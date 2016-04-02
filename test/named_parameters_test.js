@@ -1,5 +1,4 @@
-/* global suite */
-/* global test */
+/* global suite,test */
 
 /* EXERCISE:
    - Copy support/named_parameters_es5.js to impl/named_parameters_es6.js
