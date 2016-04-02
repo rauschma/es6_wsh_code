@@ -2,6 +2,7 @@
 
 /* EXERCISE:
    - Copy this file to impl/let_test_impl.js
+   - Run via: npm test impl/let_test_impl.js
    - Insert a single(!) line so that all assertions pass
 */
 
