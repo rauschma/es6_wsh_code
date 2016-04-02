@@ -30,25 +30,20 @@
   "eslintConfig": {
     "root": true,
     "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
     "env": {
       "es6": true
     },
-    "ecmaFeatures": {
-      "modules": true
-    },
     "rules": {
-      "comma-dangle": [
-        1,
-        "always-multiline"
-      ],
+      "comma-dangle": [1, "always-multiline"],
       "no-console": 0,
       "prefer-const": 1,
       "no-var": 1,
       "no-const-assign": 2,
-      "semi": [
-        1,
-        "always"
-      ]
+      "semi": [1, "always"]
     },
     "globals": {
       "console": true
