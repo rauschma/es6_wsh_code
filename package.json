@@ -36,6 +36,9 @@
     "ecmaFeatures": {
       "modules": true
     },
+    "parserOptions": {
+      "sourceType": "module"
+    },
     "rules": {
       "comma-dangle": [
         1,
