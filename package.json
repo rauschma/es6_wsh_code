@@ -13,9 +13,6 @@
     "http-server": "^0.9.0",
     "mocha": "^2.4.5"
   },
-  "bin": {
-    "point": "./src/point.js"
-  },
   "scripts": {
     "b": "babel-node",
     "test": "mocha --ui qunit --compilers js:babel-register",
