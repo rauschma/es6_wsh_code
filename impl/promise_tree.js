@@ -1,4 +1,4 @@
-import {resolve,basename} from 'path';
+import {resolve} from 'path';
 import {readdir,stat} from 'fs';
 import denodeify from 'denodeify';
 
@@ -22,7 +22,7 @@ export function listFiles(filepath) {
                 });
             });
         } else {
-            return [ basename(filepath) ];
+            return [ filepath ];
         }
     });    
 }
