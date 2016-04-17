@@ -10,16 +10,14 @@ export function listFiles(filepath) {
     .then(stats => {
         if (stats.isDirectory()) {
             return readdirAsync(filepath)
-            .then(childnames => {
-                childnames.sort();
-                return Promise.all(
-                    childnames.map(childname =>
-                        listFiles(resolve(filepath, childname))
-                    )
-                )
-                .then(subtrees => {
-                    return flatten(subtrees);
-                });
+            // Ensure result is deterministic
+            .then(childNames => childNames.sort())
+            .then(sortedNames =>
+                Promise.all(
+                    sortedNames.map(childName =>
+                        listFiles(resolve(filepath, childName)) ) ) )
+            .then(subtrees => {
+                return flatten(subtrees);
             });
         } else {
             return [ filepath ];
